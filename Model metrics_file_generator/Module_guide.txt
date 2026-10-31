@@ -1,0 +1,11 @@
+To be read along with Example_yasith.py for complete understanding
+
+
+#initialize class with file deirectory where the files are to be saved and the model variable
+	Ridge=Ridge_metrics(file_directory,ridge_model)
+
+#refer to class definition to see the variables needed for train dataset
+	Ridge.training_data(X_train, X_labels, y_train, Y_labels)
+
+#refer to class definition to see the variables needed for test dataset
+	Ridge.test_data(X_test,X_labels, y_test,Y_labels)

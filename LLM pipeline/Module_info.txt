@@ -1,0 +1,25 @@
+To be read with main.py in LLM pipeline directory which is an example implementation
+
+main.py
+#loading necessary data
+   -->load_model_data(): to load the 4 model files used for inference
+   -->split_test_data(): to split the test data into X and Y
+
+#Getting LLM outputs for a particular model and metric (Accuracy counterfactuals etc)
+   -->LLM_Outputs(): gets LLM output from multiple LLMs for a particular model and metric
+            ¦
+            ---->Prompt_Creator():Create prompt based on particular test data point
+                       ¦
+                       -->Prompt_generator Class: initialized by metric and each method is a prompt sub-division
+				¦
+				-->Dictionaries: LLM_Roles_dict, Questions_dict, Output_format_dict for hardcoded prompt sections
+
+#Evaluating LLM outputs based on metric
+   -->Evaluation(): Evaluates LLM predictions for a particular ML model and metric for entirety of the test data and for a every LLM separately 
+	   ¦
+	   --> Evaluation_metric(): a function which is chosen by string matching from Results_table file where each metrics individual functions are
+			¦
+			--> Accuracy(),Counterfactuals(): Can be found in files results table, returns MAE and plots comparing predictions and ground truth
+
+#UNTESTED Writing to a doc
+   -->Write_to_Doc(): writes result of a model and metric to a doc with an example prompt
